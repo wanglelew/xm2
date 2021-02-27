@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: article-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://49.232.185.35:3306/videoblog-article?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: wll2001
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+server:
+  port: 2000
+mybatis:
+  config-location: classpath:/db/mybatis-config.xml
+#startup.cmd -m standalone
