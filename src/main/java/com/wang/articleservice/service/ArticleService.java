@@ -1,6 +1,8 @@
 package com.wang.articleservice.service;
 
 import com.wang.articleservice.entity.Article;
+import com.wang.articleservice.entity.Video;
+import com.wang.articleservice.feignclient.VideoFeignClient;
 import com.wang.articleservice.mapper.ArticleMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -20,7 +22,14 @@ import java.util.List;
 public class ArticleService {
     @Resource
     private ArticleMapper articleMapper;
+    @Resource
+    private VideoFeignClient videoFeignClient;
     public List<Article> list(){
-        return articleMapper.selectAll();
+        List<Article> list = articleMapper.selectAll();
+        for (Article article : list) {
+            Video video=videoFeignClient.getByArtcileId(article.getArticleId());
+            article.setVideo(video);
+        }
+        return list;
     }
 }

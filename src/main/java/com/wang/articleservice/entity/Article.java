@@ -16,6 +16,15 @@ public class Article {
     private String content;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
+    private Video video;
+
+    public Video getVideo() {
+        return video;
+    }
+
+    public void setVideo(Video video) {
+        this.video = video;
+    }
 
     public Long getArticleId() {
         return articleId;

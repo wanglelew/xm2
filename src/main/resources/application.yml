@@ -12,8 +12,17 @@ spring:
         server-addr: localhost:8848
         username: nacos
         password: nacos
+    sentinel:
+      transport:
+        dashboard: localhost:8080
 server:
   port: 2000
 mybatis:
   config-location: classpath:/db/mybatis-config.xml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 #startup.cmd -m standalone
+

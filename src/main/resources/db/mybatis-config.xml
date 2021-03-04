@@ -8,5 +8,6 @@
         articleId -> article_id
         -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="logImpl" value="org.apache.ibatis.logging.stdout.StdOutImpl"/>
     </settings>
 </configuration>
