@@ -17,9 +17,9 @@ import javax.annotation.Resource;
 public class test {
     @Resource
     private VideoFeignClient videoFeignClient;
-    @Test
-    public void getArticle() {
-        Video video = videoFeignClient.getByArtcileId(1649l);
-        System.out.println(video);
-    }
+
+//    public void getArticle() {
+//        Video video = videoFeignClient.getByArtcileId(1649l);
+//        System.out.println(video);
+//    }
 }

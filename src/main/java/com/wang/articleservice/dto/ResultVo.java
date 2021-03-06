@@ -11,6 +11,9 @@ public class ResultVo<T> {
     private String msg;
     private T data;
 
+    public ResultVo() {
+    }
+
     public ResultVo(T ...data) {
         this.status="0";
         this.msg="success";

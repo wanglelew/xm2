@@ -1,5 +1,6 @@
 package com.wang.articleservice.service;
 
+import com.wang.articleservice.dto.ResultVo;
 import com.wang.articleservice.entity.Article;
 import com.wang.articleservice.entity.Video;
 import com.wang.articleservice.feignclient.VideoFeignClient;
@@ -27,8 +28,8 @@ public class ArticleService {
     public List<Article> list(){
         List<Article> list = articleMapper.selectAll();
         for (Article article : list) {
-            Video video=videoFeignClient.getByArtcileId(article.getArticleId());
-            article.setVideo(video);
+            ResultVo<Video> video=videoFeignClient.getByArtcileId(article.getArticleId());
+            article.setVideo(video.getData());
         }
         return list;
     }
